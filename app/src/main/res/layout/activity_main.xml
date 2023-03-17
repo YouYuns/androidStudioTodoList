@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="할 일 목록"
             android:typeface="normal"
-            android:fontFamily="@font/gamjaFlowerRegular"
+            android:fontFamily="@font/gamja_flower_regular"
             android:textStyle="bold"
             android:textSize="30sp"
             android:layout_marginBottom="15dp"
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gamjaFlowerRegular"
+        android:fontFamily="@font/gamja_flower_regular"
         android:text="오늘"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
@@ -48,7 +48,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gamjaFlowerRegular"
+        android:fontFamily="@font/gamja_flower_regular"
         android:text="체크리스트"
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:fontFamily="@font/gamjaFlowerRegular"
+        android:fontFamily="@font/gamja_flower_regular"
         android:background="@drawable/round_border"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
@@ -72,11 +72,12 @@
         android:id="@+id/btn_addSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gamjaFlowerRegular"
+        android:fontFamily="@font/gamja_flower_regular"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_color"
+        android:textColor="@color/black"
         android:text=" + 일정추가"
         />
 
