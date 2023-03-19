@@ -46,6 +46,7 @@
             android:fontFamily="@font/gamja_flower_regular"
             android:text="지금"
             android:textSize="20sp"
+            android:gravity="center"
             android:textColor="@color/white" />
 
         <TextView
@@ -55,6 +56,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/gamja_flower_regular"
             android:text="나중"
+            android:gravity="center"
             android:textSize="20sp"
             android:textColor="@color/white" />
 
@@ -64,15 +66,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gamja_flower_regular"
-        android:text="체크리스트"
+        android:text="할일"
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/white"
         />
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="50dp"
         android:fontFamily="@font/gamja_flower_regular"
         android:background="@drawable/round_border"
         android:textSize="20sp"
@@ -80,5 +82,19 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/white"
+        android:hint="일정을 입력해주세요"
+        android:gravity="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_addSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gamja_flower_regular"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_color"
+        android:textColor="@color/black"
+        android:text="저장"
         />
 </LinearLayout>

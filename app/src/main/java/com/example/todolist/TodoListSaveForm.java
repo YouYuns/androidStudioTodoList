@@ -28,7 +28,7 @@ public class TodoListSaveForm extends AppCompatActivity {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         String startTime = timeFormat.format(currentTime.getTime());
 
-// 2시간 후의 시간을 가져옵니다.
+    // 2시간 후의 시간을 가져옵니다.
         Calendar laterTime = Calendar.getInstance();
         laterTime.add(Calendar.HOUR_OF_DAY, 2);
         String endTime = timeFormat.format(laterTime.getTime());
