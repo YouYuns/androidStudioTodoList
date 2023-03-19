@@ -72,29 +72,30 @@
         android:layout_marginRight="20dp"
         android:textColor="@color/white"
         />
+
     <EditText
+        android:id="@+id/addSchedule_editText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:fontFamily="@font/gamja_flower_regular"
-        android:background="@drawable/round_border"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:textColor="@color/white"
+        android:background="@drawable/round_border"
+        android:fontFamily="@font/gamja_flower_regular"
+        android:gravity="center"
         android:hint="일정을 입력해주세요"
-        android:gravity="center" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_addSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gamja_flower_regular"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/button_color"
-        android:textColor="@color/black"
+        android:fontFamily="@font/gamja_flower_regular"
         android:text="저장"
-        />
+        android:textColor="@color/black" />
 </LinearLayout>

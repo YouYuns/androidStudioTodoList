@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1040234293011:android:2e1326017fdbc9b96f5ce6",
+        "mobilesdk_app_id": "1:1040234293011:android:d105d58ddc9dbb656f5ce6",
         "android_client_info": {
           "package_name": "com.example.todolist"
         }

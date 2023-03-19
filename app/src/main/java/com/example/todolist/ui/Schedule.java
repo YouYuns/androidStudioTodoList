@@ -6,15 +6,26 @@ import java.time.LocalDate;
 
 public class Schedule {
     private Long id;
-    private LocalDate startTime;
-    private LocalDate endTime;
+    private String startTime;
+    private String endTime;
     private String schedule;
 
-    public Schedule(Long id, LocalDate startTime, LocalDate endTime, String schedule) {
+
+    public Schedule() {
+    }
+
+    public Schedule(Long id, String startTime, String endTime, String schedule) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
         this.schedule = schedule;
+    }
+
+    public Schedule(String schedule, String startTime, String endTime) {
+        this.schedule=schedule;
+        this.startTime =startTime;
+        this.endTime=endTime;
+
     }
 
     public Long getId() {
@@ -25,19 +36,19 @@ public class Schedule {
         this.id = id;
     }
 
-    public LocalDate getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDate startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDate getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDate endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
