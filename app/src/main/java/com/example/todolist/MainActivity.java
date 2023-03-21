@@ -12,6 +12,7 @@ import com.example.todolist.ui.Schedule;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,13 +22,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolist.databinding.ActivityMainBinding;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -79,26 +79,60 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference ref = database.getReference("schedules");
 
 
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Schedule> scheduleList = new ArrayList<>();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Schedule schedule = dataSnapshot.getValue(Schedule.class);
-                    scheduleList.add(schedule);
-                }
 
-                adapter = new TodoListAdapter(scheduleList);
-                recyclerView.setAdapter(adapter);
+        ChildEventListener childEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Schedule schedule = snapshot.getValue(Schedule.class);
+                schedule.getId(snapshot.getKey());
+                mScheduleList.add(schedule);
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Schedule schedule = snapshot.getValue(Schedule.class);
+                String scheduleKey = snapshot.getKey();
+                int scheduleIndex = -1;
+                for (int i = 0; i < mScheduleList.size(); i++) {
+                    if (mScheduleList.get(i).getId(snapshot.getKey()).equals(scheduleKey)) {
+                        scheduleIndex = i;
+                        break;
+                    }
+                }
+                if (scheduleIndex != -1) {
+                    mScheduleList.set(scheduleIndex, schedule);
+                    adapter.notifyItemChanged(scheduleIndex);
+                }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, "Error occurred while fetching data from Firebase", databaseError.toException());
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                String scheduleKey = snapshot.getKey();
+                int scheduleIndex = -1;
+                for (int i = 0; i < mScheduleList.size(); i++) {
+                    if (mScheduleList.get(i).getId(snapshot.getKey()).equals(scheduleKey)) {
+                        scheduleIndex = i;
+                        break;
+                    }
+                }
+                if (scheduleIndex != -1) {
+                    mScheduleList.remove(scheduleIndex);
+                    adapter.notifyItemRemoved(scheduleIndex);
+                }
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                // Not used in this example
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e(TAG, "Error occurred while fetching data from Firebase", error.toException());
             }
         };
 
-        ref.addValueEventListener(valueEventListener);
+        ref.addChildEventListener(childEventListener);
 
     }
 
