@@ -1,5 +1,8 @@
 package com.example.todolist.ui;
 
+import java.time.LocalDate;
+
+
 
 public class Schedule {
     private Long id;
@@ -25,7 +28,7 @@ public class Schedule {
 
     }
 
-    public Long getId(String key) {
+    public Long getId() {
         return id;
     }
 
