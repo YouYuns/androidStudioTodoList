@@ -1,7 +1,7 @@
 package com.example.todolist.ui;
 
 import java.time.LocalDate;
-
+import java.util.Date;
 
 
 public class Schedule {
@@ -10,23 +10,19 @@ public class Schedule {
     private String endTime;
     private String schedule;
 
+    private Date saveTime;
+
 
     public Schedule() {
     }
 
-    public Schedule(Long id, String startTime, String endTime, String schedule) {
-        this.id = id;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.schedule = schedule;
-    }
-
-    public Schedule(String schedule, String startTime, String endTime) {
+    public Schedule(String schedule, String startTime, String endTime, Date now) {
         this.schedule=schedule;
         this.startTime =startTime;
         this.endTime=endTime;
-
+        this.saveTime=now;
     }
+
 
     public Long getId() {
         return id;

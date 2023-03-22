@@ -53,9 +53,15 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.Schedu
         public ScheduleViewHolder(@NonNull View itemView) {
             super(itemView);
 
+
             startTimeTextView = itemView.findViewById(R.id.start_time_text_view);
             endTimeTextView = itemView.findViewById(R.id.end_time_text_view);
             scheduleTextView = itemView.findViewById(R.id.schedule_text_view);
+
+            // 텍스트 색상 설정
+            startTimeTextView.setTextColor(itemView.getResources().getColor(R.color.black));
+            endTimeTextView.setTextColor(itemView.getResources().getColor(R.color.black));
+            scheduleTextView.setTextColor(itemView.getResources().getColor(R.color.black));
         }
     }
 }
