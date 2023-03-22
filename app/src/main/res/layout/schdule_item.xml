@@ -26,4 +26,10 @@
         android:layout_weight="2"
         android:text="Schedule" />
 
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_delete_24"
+        />
 </LinearLayout>
